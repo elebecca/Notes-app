@@ -16,7 +16,7 @@ describe('NoteList', () => {
     it('create and stores a note', () => {
         const noteList = new NoteList();
         const note = new Note();
-        noteList.AddNotes(note.text());
+        noteList.AddNotes(note.showText());
         expect(noteList.showNotes().length).toBe(1);
         expect(noteList.showNotes()[0]).toBe('hello1');
     })

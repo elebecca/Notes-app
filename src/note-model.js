@@ -1,5 +1,7 @@
-var Note = function() {}
+var Note = function(text) {
+  this.text = text;
+}
 
-Note.prototype.text = function() {
-  return ('hello1');
+Note.prototype.showText = function() {
+  return this.text;
 };
