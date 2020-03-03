@@ -1,16 +1,22 @@
 const describe = (desc, fn) => {
+    console.log('Test:')
     console.log(desc)
     fn()
+    console.log("")
 }
   
 const it = (msg, fn) => describe('  ' + msg, fn)
 
-const matchers = (exp) => ({
-  toBe: (assertion) => {
-    if (exp === assertion) {
+const matchers = (actualValue) => ({
+  toBe: (expectedValue) => {
+    if (actualValue === expectedValue) {
+    console.log('actualValue:' + actualValue)
+    console.log('expectedValue:' + expectedValue)
     console.log('pass')
     return true
     } else {
+    console.log('actualValue:' + actualValue)
+    console.log('expectedValue:' + expectedValue)
     console.log('fail')
     return false
     }
