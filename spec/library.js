@@ -1,5 +1,5 @@
 const describe = (desc, fn) => {
-    console.log('Test:')
+    console.log("Test: ")
     console.log(desc)
     fn()
     console.log("")
@@ -7,40 +7,43 @@ const describe = (desc, fn) => {
   
 const it = (msg, fn) => describe('  ' + msg, fn)
 
-const matchers = (actualValue) => ({
+const expect = (actualValue) => ({
   toBe: (expectedValue) => {
     if (actualValue === expectedValue) {
-    console.log('actualValue:' + actualValue)
-    console.log('expectedValue:' + expectedValue)
-    console.log('pass')
-    return true
+      console.log("actualValue: " + actualValue)
+      console.log("expectedValue: " + expectedValue)
+      console.log('pass')
+      return true
     } else {
-    console.log('actualValue:' + actualValue)
-    console.log('expectedValue:' + expectedValue)
-    console.log('fail')
-    return false
+      console.log("actualValue: " + actualValue)
+      console.log("expectedValue: " + expectedValue)
+      console.log('fail')
+      return false
+    }
+  },
+  isTrue: () => {
+    if (actualValue === true) {
+      console.log("actualValue: " + actualValue)
+      console.log('pass')
+      return true
+    } else {
+      console.log("actualValue: " + actualValue)
+      console.log('fail')
+      return false
+    }
+  },
+  isFalse: () => {
+    if (actualValue === false) {
+      console.log("actualValue: " + actualValue)
+      console.log('pass')
+      return true
+    } else {
+      console.log("actualValue: " + actualValue)
+      console.log('fail')
+      return false
     }
   }
-});
-
-const expect = (exp) => matchers(exp)
-
-function adder(a, b) {
-    return a + b 
-    }
-
-const assertion = {
-    isTrue: function(assertion) {
-        if (!assertion) {
-            throw new Error("Assertion failed" + assertion + "is not truthy");
-        }
-    },
-    isFalse: function (assertion) {
-        if (assertion) {
-            throw new Error("Assertion failed" + assertion + "is not truthy");
-        }    
-    },
-};
+})
 
 
   
