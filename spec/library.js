@@ -6,7 +6,7 @@ const describe = (desc, fn) => {
 const it = (msg, fn) => describe('  ' + msg, fn)
 
 const matchers = (exp) => ({
-  toBe: (asssertion) => {
+  toBe: (assertion) => {
     if (exp === assertion) {
     console.log('pass')
     return true
@@ -15,25 +15,28 @@ const matchers = (exp) => ({
     return false
     }
   }
-})
+});
 
 const expect = (exp) => matchers(exp)
 
 function adder(a, b) {
     return a + b 
     }
+
 const assertion = {
-  isTrue: function(assertion) {
-    if (!assertion) {
-        throw new Error("Assertion failed" + assertion + "is not truthy");
-    }
-  },
-  isFalse: function (assertion) {
-    if (assertion) {
-        throw new Error("Assertion failed" + assertion + "is not truthy");
-    }    
-  },
+    isTrue: function(assertion) {
+        if (!assertion) {
+            throw new Error("Assertion failed" + assertion + "is not truthy");
+        }
+    },
+    isFalse: function (assertion) {
+        if (assertion) {
+            throw new Error("Assertion failed" + assertion + "is not truthy");
+        }    
+    },
 };
+
+
   
 
 //   example syntax
@@ -43,4 +46,4 @@ const assertion = {
 //       expect(result).toBe(3)
 //     })
 //   })
-  
+
